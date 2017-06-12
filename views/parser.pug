@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to Inventory #{title}
+
+
+  form(role="form", action="/parser", method="post", enctype="multipart/form-data")
+    div(class="form-group")
+      label(for="onixfile")        
+      input(type="file", name="onixfile", id="onixfile")
+      input(type="submit")
