@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var multer  = require('multer')
 //var upload = multer({ dest: 'uploads/' })
+var sandroParser = require("./../core/sandroParser");
 
 
  var storage = multer.diskStorage({ //multers disk storage settings
@@ -20,38 +21,43 @@ var multer  = require('multer')
 
 
 
-/* GET parser page. */
-//router.get('/', function(req, res, next) {
-//  res.render('parser', { title: 'Parser' });
-//});
 
 router.get('/', function(req, res) {
   res.render('parser', { title: 'Data Parser' });
+  //sandroParser(sourcefilename, 'Sheet1', outputfilename);
+
 });
 
 
+router.post('/', upload, function (req, res, next){
+    console.log(req.file);
+    var ff = req.file.originalname;
+    var chocho = ff.substr(0, ff.lastIndexOf('.'))+'.csv'
+    console.log('I was here');
+    //res.send("file received");
+    res.render('success', { fname: chocho});
+    sandroParser(req.file.filename, 'Sheet1', req.file.originalname);
+})
 
+module.exports = router;
+
+
+    /** API path that will upload the files */
+
+
+    
+/*
 router.post('/', function(req, res) {
+    //var files = req.files
         upload(req,res,function(err){
             if(err){
                  res.json({error_code:1,err_desc:err});
                  return;
             }
              res.json({error_code:0,err_desc:null});
+             res.sendStatus(200);
         });
-    });
-
-
-/*
-router.post('/', upload.single('avatar'), function (req, res, next) {
-  // req.file is the `avatar` file 
-  // req.body will hold the text fields, if there were any 
-   console.dir(req.files);
-})*/
-
-module.exports = router;
-
-
-
-
-    /** API path that will upload the files */
+        console.log('Im here at post production');
+        //console.log(req.files);
+       // res.sendStatus(200);
+    });*/
