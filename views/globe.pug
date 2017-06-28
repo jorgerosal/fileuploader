@@ -2,10 +2,10 @@ extends layout
 
 block content
   h1= title
-  p Welcome to Sandro Inventory #{title}
+  p Welcome to Globe Inventory #{title}
 
 
-  form(role="form", action="/parser", method="post", enctype="multipart/form-data")
+  form(role="form", action="/globe", method="post", enctype="multipart/form-data")
     div(class="form-group")
       label(for="file")        
       input(type="file", name="file", id="file", class = "btn")
