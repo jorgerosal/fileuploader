@@ -1,14 +1,26 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h2 This is #{title}. Happy to see you here.
+
+  h4 Brand Inventory Parsers:
 
   p
-    a(title='Parser', href='/parser') Sandro
+  a(title='Parser | Sandro', href='/parser') Sandro
+  
+  p
+  a(title='Parser | Globe', href='/globe') Globe
+  
+  p
+  a(title='Parser | Skechers ', href='/skechers') Skechers
+      
+
+  h4 Other Stuff:
+  p
+  a(title='BT Cost', href='/btCost') Bt Cost
+  
+  p
+  a(title='Parser | ListingLoader', href='/llParser') ListingLoader Parser
     
-    p
-    a(title='Parser', href='/globe') Globe
-    
-    p
-    a(title='Parser', href='/skechers') Skechers
+  p
+  a(title='Obermeyer', href='/obermeyer') Obermeyer API

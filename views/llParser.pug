@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  p Upload Listing Loader File here: 
+  p For fast processing, please upload a copy of the "Products with Multiple Matches" sheet and save it to a new workbook.
+
+
+  form(role="form", action="/llParser", method="post", enctype="multipart/form-data")
+    div(class="form-group")
+      label(for="file")        
+      input(type="file", name="file", id="file", class = "btn")
+      input(type="submit", class ="btn-primary")

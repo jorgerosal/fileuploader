@@ -11,6 +11,9 @@ var parser = require('./routes/parser');
 var upload = require('./routes/parser');
 var globe = require('./routes/globe');
 var skechers = require('./routes/skechers');
+var btCost = require('./routes/btCost');
+var llParser = require('./routes/llParser');
+var obermeyer = require('./routes/obermeyer');
 
 var app = express();
 
@@ -36,6 +39,11 @@ app.use('/upload', parser);
 app.use('/globe', globe);
 
 app.use('/skechers', skechers);
+
+app.use('/btCost', btCost);
+
+app.use('/llParser', llParser);
+app.use('/obermeyer', obermeyer);
 
 
 

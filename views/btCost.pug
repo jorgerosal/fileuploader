@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p Upload a file with list of SKUs in .txt format.
+  
+  
+
+
+  form(role="form", action="/btCost", method="post", enctype="multipart/form-data")
+    div(class="form-group")
+      label(for="file")        
+      input(type="file", name="file", id="file", class = "btn")
+      input(type="submit", class ="btn-primary")
